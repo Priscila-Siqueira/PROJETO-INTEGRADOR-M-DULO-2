@@ -1,0 +1,58 @@
+<div class="flex ml-8 pt-4">
+  <div class="h-full w-full overflow-x-auto overflow-y-auto max-h-[715px] shadow-md sm:rounded-lg">
+    <div>
+      <table class="bg-white w-full rounded-lg overflow-hidden border-collapse text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-white uppercase bg-preto-tabela-tab dark:bg-gray-700 dark:text-gray-400 sticky top-0 z-10">
+          <tr>
+            <th scope="col" class="p-4 text-white">Descrição</th>
+            <th scope="col" class="p-4 text-white">Data</th>
+            <th scope="col" class="p-4 text-white">Etapas</th>
+            <th scope="col" class="p-4 text-white">Disciplinas</th>
+            <th scope="col" class="p-4 text-white">Projetos</th>
+            <th scope="col" class="p-4 text-white text-center">Arquivos</th>
+            <th scope="col" class="p-4 text-white text-center">Status</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+          @for (item of listaCompartilhada; track $index) {
+          <tr (click)="redirecionarArquivo(item);" class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 hover:cursor-pointer">
+            <td class="p-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              {{ item.lista_compartilhada_descricao }}
+            </td>
+            <td class="p-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              {{item.lista_compartilhada_data | date : "dd/MM/yyyy HH:mm:ss"}}
+            </td>
+            <td class="p-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <ul>
+                <li *ngFor="let etapa of getUniqueEtapas(item.lista_compartilhada_arquivo)">
+                  {{ etapa }}
+                </li>
+              </ul>
+            </td>
+            <td class="p-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <ul>
+                <li *ngFor="let disciplina of getUniqueDisciplinas(item.lista_compartilhada_arquivo)">
+                  {{ disciplina }}
+                </li>
+              </ul>
+            </td>
+            <td class="p-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <ul>
+                <li *ngFor="let projeto of getUniqueProjetos(item.lista_compartilhada_arquivo)">
+                  {{ projeto }}
+                </li>
+              </ul>
+            </td>
+            <td class="p-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              {{ getQuantidadeArquivos(item.lista_compartilhada_arquivo) }}
+            </td>
+            <td class="p-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              {{ getStatusDescription(item.lista_compartilhada_status) }}
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

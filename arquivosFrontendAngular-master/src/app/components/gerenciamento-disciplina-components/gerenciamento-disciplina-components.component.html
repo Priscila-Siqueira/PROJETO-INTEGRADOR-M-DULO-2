@@ -1,0 +1,54 @@
+<div class="relative overflow-x-auto sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-white uppercase bg-gray-900 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Nome da Disciplina
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Projeto
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Status
+                  </th>
+                <th scope="col" class="px-6 py-3">
+                    Editar
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Excluir
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (disciplina of disciplinas; track disciplina) {
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th (click)="onSelect(disciplina)" scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white cursor-pointer">
+                    {{disciplina.disciplina_descricao}}
+                </th>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{disciplina.projeto_nome}}
+                </th>
+                <th scope="row" class="px-6 py-4">
+                    <span *ngIf="disciplina.disciplina_status == 0"
+                        class="inline-flex items-center bg-red-200 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                        Inativo
+                    </span>
+                    <span *ngIf="disciplina.disciplina_status == 1"
+                        class="inline-flex items-center bg-green-200 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                        Ativo
+                    </span>
+                </th>
+                <th scope="row" class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" (click)="detalharDisciplina(disciplina)">
+                    <app-modal-edit-disciplina></app-modal-edit-disciplina>
+                </th>
+                <th scope="row" class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <a class="font-medium text-gray-900 whitespace-nowrap dark:text-white cursor-pointer"
+                        (click)="deletarDisciplina(disciplina.disciplina_id)">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </th>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

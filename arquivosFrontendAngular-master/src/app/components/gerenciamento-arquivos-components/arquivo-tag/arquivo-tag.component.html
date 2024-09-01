@@ -1,0 +1,7 @@
+<div class="flex flex-row py-2">
+  @for (tag of tags; track tag) {
+    <div class="text-{{setTagColor(tag)}} px-3 py-1.5 my-1 mr-2 bg-gray-700 text-sm rounded-xl border border-{{setTagColor(tag)}} inline-flex justify-center items-center">
+      {{tag}}
+    </div>
+  }
+</div>

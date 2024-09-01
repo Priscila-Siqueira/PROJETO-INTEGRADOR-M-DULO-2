@@ -1,0 +1,23 @@
+.fonte-principal {
+  font-size: 1.25rem;
+}
+
+.posicao{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.font-preta {
+  color: black;
+}
+
+.font-azul{
+  color: blue;
+}
+
+.ultimo-acesso {
+  color: #ACA6A6;
+  font-size: 0.875rem;
+}

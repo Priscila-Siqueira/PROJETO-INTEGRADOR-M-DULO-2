@@ -1,0 +1,27 @@
+/* grafico.component.css */
+.custom-margin{
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+#donut-chart {
+  max-width: 650px;
+  margin: 35px auto;
+}
+
+#devices {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#devices label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+#devices input[type="checkbox"] {
+  margin-right: 5px;
+}

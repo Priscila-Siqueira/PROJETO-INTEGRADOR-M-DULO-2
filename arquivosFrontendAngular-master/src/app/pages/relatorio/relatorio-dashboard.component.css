@@ -1,0 +1,26 @@
+/* Topo */
+
+app-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+section{
+  padding: 10px;
+}
+
+.secao1{
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+  padding: 20px;
+}
+
+.breadcrumb-search{
+  display: flex;
+  justify-content: space-between;
+
+}

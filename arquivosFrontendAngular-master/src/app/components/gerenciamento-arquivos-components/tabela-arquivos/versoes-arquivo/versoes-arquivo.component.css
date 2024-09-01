@@ -1,0 +1,10 @@
+.separator {
+  width: 3px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: #4a5568; /* Tailwind's gray-700 */
+  flex-shrink: 0; /* Garante que o separador não diminua */
+}
+
+
+

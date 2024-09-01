@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<app-menu-lateral></app-menu-lateral>
+<div class="p-4 sm:ml-64">
+  <div class="flex justify-between items-center pt-20">
+    <xng-breadcrumb class="pl-2">
+      <ng-container *xngBreadcrumbItem="let breadcrumb">
+        {{ breadcrumb }}
+      </ng-container>
+    </xng-breadcrumb>
+    <app-barra-pesquisa></app-barra-pesquisa>
+  </div>
+  <div class="pt-4 flex justify-end">
+    <app-modal-create-projeto></app-modal-create-projeto>
+  </div>
+  <app-home-arquivos-components></app-home-arquivos-components>
+</div>

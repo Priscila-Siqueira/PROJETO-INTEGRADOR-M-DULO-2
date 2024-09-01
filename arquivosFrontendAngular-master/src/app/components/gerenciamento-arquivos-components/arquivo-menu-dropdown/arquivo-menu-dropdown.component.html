@@ -1,0 +1,48 @@
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+  aria-label="Example icon-button with a menu"
+>
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>edit</mat-icon>
+    <span>Editar</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon>favorite</mat-icon>
+    <span>Favoritar</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>share</mat-icon>
+    <span>Compartilhar</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>chat-bubble</mat-icon>
+    <span>Comentar</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>download</mat-icon>
+    <span>Fazer download</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon>history</mat-icon>
+    <span>Visualizar versões</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>insert_drive_file</mat-icon>
+    <span>Sobre o arquivo</span>
+  </button>
+  <mat-divider></mat-divider>
+  <button mat-menu-item>
+    <mat-icon>settings</mat-icon>
+    <span>Configurar permissão</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>delete_outline</mat-icon>
+    <span>Mover para a lixeira</span>
+  </button>
+</mat-menu>

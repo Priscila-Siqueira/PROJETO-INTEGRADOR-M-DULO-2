@@ -1,0 +1,52 @@
+<div class="principal">
+  <div class="cards flex flex-wrap justify-around">
+    <div class="card">
+      <div class="card-content">
+        <a href="/usuarios">
+        <h5 class="card-title">Total de usuários</h5></a>
+        <h3 class="card-number">{{ listaUsuarios.length }} / 80</h3>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <h5 class="card-title">Empresas</h5>
+        <h3 class="card-number">{{ listaEmpresas.length }} / 60</h3>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <a href="/relatorio-arquivo">
+
+        <h5 class="card-title">Projetos</h5></a>
+        <h3 class="card-number">{{ listaProjetos.length | number }}</h3>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <a href="/arquivos/1">
+        <h5 class="card-title">Arquivos</h5>
+      </a>
+        <h3 class="card-number">{{ listaArquivos.length | number }}</h3>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <h5 class="card-title">Espaço Usado</h5>
+        <h3 class="card-number">{{ tamanhoTotalProjeto ? tamanhoTotalProjeto + ' MB' : 'Dados não disponíveis' }}</h3> <!-- Conditional data display -->
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <a href="/usuarios">
+
+        <h5 class="card-title">Usuarios Ativos</h5></a>
+        <h3 class="card-number">{{listaUsuariosAtivos.length}}</h3>
+      </div>
+    </div>
+  </div>
+</div>

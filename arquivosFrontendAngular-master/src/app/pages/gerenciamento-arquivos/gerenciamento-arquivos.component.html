@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<app-menu-lateral></app-menu-lateral>
+
+<div class="p-4 sm:ml-64 bg-gray-100">
+
+  <div class="flex content-center justify-end items-center bg-gray-100">
+    <div class="flex content-center justify-end items-center bg-gray-100 mr-5 mt-[80px]">
+      <app-barra-pesquisa></app-barra-pesquisa>
+    </div>
+  </div>
+  <div class="flex justify-between mt-4">
+    <app-arquivo-tag></app-arquivo-tag>
+    <div class="flex mr-3">
+      <app-botao-enviar-arquivo></app-botao-enviar-arquivo>
+      <app-modal-arquivo-lista-compartilhada  [dados]="dadosRecebidos"></app-modal-arquivo-lista-compartilhada>
+    </div>
+  </div>
+<app-tabela-arquivos (testeChange)="onTesteChange($event)"></app-tabela-arquivos>
+</div>

@@ -1,0 +1,54 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-white uppercase bg-gray-900 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Nome da Etapa
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Data de Cadastro
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Editar
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Excluir
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (etapa of etapas; track etapa) {
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <th (click)="onSelect(etapa)" scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white cursor-pointer">
+                    {{etapa.etapa_descricao}}
+                </th>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{etapa.etapa_data_inicio}}
+                </th>
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <span *ngIf="etapa.etapa_status == 0"
+                        class="inline-flex items-center bg-red-200 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                        Inativo
+                    </span>
+                    <span *ngIf="etapa.etapa_status == 1"
+                        class="inline-flex items-center bg-green-200 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                        Ativo
+                    </span>
+                </th>
+                <th scope="row" class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white" (click)="detalharEtapa(etapa)">
+                    <app-modal-edit-etapa></app-modal-edit-etapa>
+                </th>
+                <th scope="row" class="px-10 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <a class="font-medium text-gray-900 whitespace-nowrap dark:text-white cursor-pointer"
+                        (click)="deletarEtapa(etapa.etapa_id)">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </th>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

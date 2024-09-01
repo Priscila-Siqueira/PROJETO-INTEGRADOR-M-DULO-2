@@ -1,0 +1,36 @@
+
+###
+POST http://academico3.rj.senac.br/comentario
+Content-Type: application/json
+
+{
+  "arquivo_comentario_descricao": " 01",
+  "arquivo_id": "1                                                                                                          ",
+  //"arquivo_comentario_id_pai": "",
+  "arquivo_comentario_nivel": 2
+}
+
+### Listar todos os comentários
+Get http://localhost:4200/comentario
+Content-Type: application/json
+
+
+### Comentários aninhados
+Get http://localhost:4200/comentario/3/children
+Content-Type: application/json
+
+
+### Editar
+PATCH  http://localhost:4200/comentario/3
+Content-Type: application/json
+
+{
+  "arquivo_comentario_descricao": "Editado mk 3 ",
+  "arquivo_id": "1",
+  "arquivo_comentario_id_pai": 3,
+  "arquivo_comentario_nivel": 2
+}
+
+### Delete
+DELETE http://localhost:4200/comentario/4
+Content-Type: application/json

@@ -1,0 +1,40 @@
+<form>
+  <mat-form-field
+    class="example-chip-list bg-white text-[color:var(--cinza-principal-escuro)]text-sm rounded-lg focus:ring-[#282626] focus:border-[#282626] block w-full p-2.5">
+    <mat-label class="text-black focus:border-[#262626]">Selecione uma Tag</mat-label>
+    <mat-chip-grid #chipGrid aria-label="Fruit selection">
+      <!--      @for (tag of tags; track tag) {-->
+      <!--        <mat-chip-row (removed)="remove(tag)">-->
+      <!--          {{ tag }}-->
+      <!--          <button matChipRemove [attr.aria-label]="'remove ' + tag">-->
+      <!--            <mat-icon>cancel</mat-icon>-->
+      <!--          </button>-->
+      <!--        </mat-chip-row>-->
+      <!--      }-->
+    </mat-chip-grid>
+    <input placeholder="" #tagInput [formControl]="tagCtrl" [matChipInputFor]="chipGrid" [matAutocomplete]="auto"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)" />
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      @for (tag of filteredTags | async; track tag) {
+      <mat-option [value]="tag">{{ tag }}</mat-option>
+      }
+    </mat-autocomplete>
+
+  </mat-form-field>
+  @for (tag of tags; track tag) {
+  <span id="badge-dismiss-default"
+    class="inline-flex items-center my-4 px-4 py-2 me-4 text-sm font-medium text-black bg-[#E1E1E1] rounded-full h-9 border border-[#465054]">
+    <mat-icon class="mr-2">check_circle</mat-icon>
+    {{ tag }}
+    <button type="button" (click)="remove(tag)"
+      class="inline-flex items-center p-1 ms-2 text-sm text-black bg-transparent rounded-sm hover:bg-black hover:text-white"
+      data-dismiss-target="#badge-dismiss-default" aria-label="Remove">
+      <svg class="w-2 h-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+      </svg>
+      <span class="sr-only">Remove badge</span>
+    </button>
+  </span>
+  }
+</form>

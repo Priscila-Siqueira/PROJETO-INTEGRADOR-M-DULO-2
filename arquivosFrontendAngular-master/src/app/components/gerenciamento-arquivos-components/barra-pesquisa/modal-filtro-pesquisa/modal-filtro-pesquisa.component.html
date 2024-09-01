@@ -1,0 +1,102 @@
+<div class="modal w-[680px]">
+    <h1 mat-dialog-title>Filtros</h1>
+    <mat-dialog-content>
+      <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+            <div class="grid gap-3 mb-3">
+                <div class="flex items-center h-full">
+                    <h6 class="mb-1 mr-3 text-sm font-medium text-gray-900 dark:text-white">
+                        Ordernar por
+                    </h6>
+                   <div class="relative">
+                    <button (click)="toggleDropdown('dropdown')" id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="w-48 text-gray-900 border border-[color:var(--cinza-border)] bg-white hover:border-[color:var(--text-black)] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center truncate" type="button">
+                      <span class="truncate">{{selectedOrdenacao}}</span>
+                        <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                      </button>
+                      <!-- Dropdown menu -->
+                      <div id="dropdown" [class.hidden]="currentDropdown !== 'dropdown'" class="z-10 w-full absolute bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700">
+                          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                          @for (item of itensOrdenar; track item) {
+                              <li>
+                                <a href="#" (click)="setOrdenacao($event, item)" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{item}}</a>
+                              </li>
+                          }
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+                <section class="pb-5">
+                    <h6 class="text-sm font-medium text-gray-900 dark:text-white">
+                            Status
+                    </h6>
+                        <div class="pt-4 flex gap-6">
+                        @for (status of statusKeys; track status) {
+                                <div class="flex items-center">
+                                  <input id="default-checkbox-{{status}}" type="checkbox" [value]="status" (change)="onStatusChange($event)" class="w-4 h-4 text-black bg-gray-100 border-0 rounded focus:ring-0 focus:outline-none dark:bg-gray-700 dark:border-gray-600">
+                                  <label for="default-checkbox-{{status}}" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{status}}</label>
+                                </div>
+                            }
+                        </div>
+                </section>
+
+                <section class="pb-5 flex">
+                    <section class="flex-1 w-1/2">
+                        <h6 class="mb-1 text-sm font-medium text-gray-900 dark:text-white">
+                            Última modificação
+                        </h6>
+                        <div class="pt-4 relative inline-block">
+                            <button (click)="toggleDropdown('dropdownData')" id="dropdownDataButton" data-dropdown-toggle="dropdownData" class="w-48 text-gray-900 border border-[color:var(--cinza-border)] bg-white hover:border-[color:var(--text-black)] focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center truncate" type="button">
+                                <span class="truncate">{{selectedUltimaModificacao}}</span>
+                                <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                                </svg>
+                            </button>
+                            <!-- Dropdown menu -->
+                            <div id="dropdownData" [class.hidden]="currentDropdown !== 'dropdownData'" class="z-10 w-full absolute bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700">
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDataButton">
+                                @for (data of ultimaModificacao; track data) {
+                                    <li>
+                                      <a href="#" (click)="setUltimaModificacao($event, data)" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{data}}</a>
+                                    </li>
+                                }
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="flex-1">
+                        <h6 class="mb-1 text-sm font-medium text-gray-900 dark:text-white">
+                            Tamanho do Arquivo
+                        </h6>
+                        <div class="relative pt-4 min-w-20 max-w-60">
+                            <label for="labels-range-input" class="sr-only">Labels range</label>
+                            <input id="labels-range-input" type="range" value="1000" min="10" max="10000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 range-black">
+                            <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">10MB</span>
+                            <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">10GB</span>
+                        </div>
+                    </section>
+                </section>
+                <section class="pb-5">
+                    <h6 class="mb-1 text-sm font-medium text-gray-900 dark:text-white">
+                    Tipo de Arquivo
+                    </h6>
+                    <div class="pt-4 flex gap-4">
+                      @for (tipo of tipoArquivo; track tipo) {
+                            <div class="flex items-center">
+                                <input id="default-checkbox-{{tipo}}" type="checkbox" [value]="tipo" (change)="onTipoArquivoChange($event)" class="w-4 h-4 text-black bg-gray-100 border-0 rounded focus:ring-0 focus:outline-none dark:bg-gray-700 dark:border-gray-600">
+                                <label for="default-checkbox-{{tipo}}" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{tipo}}</label>
+                            </div>
+                        }
+                    </div>
+                </section>
+                <div class="flex justify-end">
+                        <button type="submit"
+                    class="px-6 py-3.5 w-1/4 text-base font-medium text-white bg-[color:var(--cinza-principal-escuro)] hover:bg-[color:var(--cinza-principal-medio)] rounded-lg text-center"
+                    [disabled]="formulario.invalid">
+                    Pesquisar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </mat-dialog-content>
+</div>

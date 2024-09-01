@@ -1,0 +1,35 @@
+.principal {
+  padding: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 35px; /* Provides space between cards */
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+  width: calc(33.333% - 20px);
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 16px;
+  color: #333; /* Dark grey for titles */
+  margin-bottom: 10px; /* Space between title and number */
+}
+
+.card-number {
+  font-size: 24px;
+  font-weight: bold; /* Bold for numbers */
+  color: rgb(73, 72, 72); /* Lighter text for numbers */
+}

@@ -1,0 +1,76 @@
+<form class="space-y-2">
+  <div>
+    <label for="nome-completo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome Completo</label>
+    <div class="flex">
+      <input type="text" id="nome-completo" class="rounded-none rounded-r-md bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={{usuario?.usuario_nome}} disabled>
+    </div>
+  </div>
+
+
+
+
+  <!-- Email -->
+  <div>
+    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">E-mail</label>
+    <div class="flex">
+      <input type="text" id="email" class="rounded-none rounded-r-md bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={{usuario?.usuario_email}} disabled>
+    </div>
+  </div>
+
+
+
+
+  <!-- CPF -->
+  <div>
+    <label for="cpf" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CPF</label>
+    <div class="flex">
+      <input type="text" id="cpf" class="rounded-none rounded-r-md bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value= {{usuario?.usuario_cpf}} disabled>
+    </div>
+  </div>
+
+
+
+
+  <!-- Endereço -->
+  <div>
+    <label for="endereco" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Endereço</label>
+    <div class="flex">
+      <input type="text" id="endereco" class="rounded-none rounded-r-md bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={{usuario?.usuario_endereco}} disabled>
+    </div>
+  </div>
+
+
+
+
+  <!-- Cargo -->
+  <div>
+    <label for="cargo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cargo</label>
+    <div class="flex">
+      <input type="text" id="cargo" class="rounded-none rounded-r-md bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={{usuario?.usuario_cargo}} disabled>
+    </div>
+  </div>
+
+
+
+
+  <!-- Tipo -->
+  <div>
+    <label for="tipo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo Usuário</label>
+    <div class="flex">
+      <input type="text" id="tipo" class="rounded-none rounded-r-md bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value={{usuario?.usuario_tipo}} disabled>
+    </div>
+  </div>
+
+
+
+    <button (click)="deletarUsuario()" type="submit" class="px-6 py-4 text-md font-semibold text-white inline-flex items-center bg-[color:var(--cinza-principal-escuro)]  hover:bg-[color:var(--cinza-principal-medio)] rounded-lg text-center">
+  <svg class="w-6 h-6 text-branco-principal dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+    <path fill-rule="evenodd" d="M8.586 2.586A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4a2 2 0 0 1 .586-1.414ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z" clip-rule="evenodd"/>
+  </svg>
+  Remover Usuário
+</button>
+
+
+
+
+</form>
